@@ -6,7 +6,7 @@ from accounts.models import User
 
 class Task(models.Model):
     task_name = models.CharField(max_length = 40)
-    task_id = models.IntegerFied(unique = True)
+    task_id = models.IntegerField(unique = True)
     task_description = models.CharField(max_length = 1500)
     created_by = models.CharField(max_length = 40)
     owner = models.CharField(max_length = 40)
