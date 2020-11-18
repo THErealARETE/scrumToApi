@@ -6,6 +6,14 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
 
 
+class ListUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User 
+        fields = (
+            'email',
+            'role'
+        )
+
 class AuthUserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -22,7 +30,7 @@ class AuthUserRegistrationSerializer(serializers.ModelSerializer):
 class AuthUserLoginCredential(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(max_length = 128 , write_only = True)
-    access =   serializers.CharField(read_only = True)
+    access =   serializers.CharField(read_only = True)  
     refresh = serializers.CharField(read_only = True)
     role = serializers.CharField(read_only = True)
 

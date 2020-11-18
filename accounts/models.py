@@ -32,6 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=50, blank=True)
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True, null=True, default=3)
     date_joined = models.DateTimeField(auto_now_add=True)
+    is_staff = models.BooleanField(default = False)
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)
